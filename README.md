@@ -29,3 +29,6 @@ Program kapatılınca ses kendi normal ayarına geri döner.
 - Program sesi duyduktan sonra kısar (yaklaşık 0,1 saniye). Çok ani bir davul vuruşunun
   ilk anı kısa bir an geçebilir, sonrası hemen kısılır.
 - En fazla 30 dB kısar (sesin tamamen kaybolmaması için).
+
+## Lisans
+MIT. Ayrıntı için `LICENSE` dosyasına bak.
