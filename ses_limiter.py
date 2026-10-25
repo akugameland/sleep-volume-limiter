@@ -35,13 +35,31 @@ ATAK_SURESI = 0.08        # kısma zaman sabiti (sn)
 ELLE_DEGISIM_DB = 0.6     # bundan büyük fark = kullanıcı sesi elle değiştirdi
 
 
+# Elle bozulmuş bir ayar dosyası programı çökertmesin ya da sesi tamamen kapatmasın:
+# türü yanlış olan ayar varsayılana döner, aralık dışındaki değer sınıra çekilir.
+SINIRLAR = {
+    "tavan_db": (-90.0, 0.0),
+    "geri_acilma": (0.5, 10.0),
+    "bekleme": (0.0, 30.0),
+    "en_fazla_kisma": (1.0, 30.0),
+}
+
+
 def ayarlari_yukle():
     ayar = dict(VARSAYILAN)
     try:
         with open(AYAR_DOSYASI, encoding="utf-8") as f:
-            ayar.update({k: v for k, v in json.load(f).items() if k in VARSAYILAN})
-    except (OSError, ValueError):
-        pass
+            veri = json.load(f)
+    except (OSError, ValueError, RecursionError):
+        return ayar
+    if not isinstance(veri, dict):
+        return ayar
+    if isinstance(veri.get("acik"), bool):
+        ayar["acik"] = veri["acik"]
+    for k, (en_az, en_cok) in SINIRLAR.items():
+        v = veri.get(k)
+        if isinstance(v, (int, float)) and not isinstance(v, bool) and math.isfinite(v):
+            ayar[k] = min(max(float(v), en_az), en_cok)
     return ayar
 
 
