@@ -23,7 +23,8 @@ Program kapatılınca ses kendi normal ayarına geri döner.
 - Müzikte sessizlik ya da duraklama olunca ses geri açılmaz. Böylece büyük bir patlama öncesi
   sessizlikte ses birden açılıp seni uyandırmaz.
 - Sesi elle değiştirirsen program bunu yeni "normal ses" olarak kabul eder.
-- Ayarlar `ayarlar.json` dosyasına kaydedilir.
+- Ayarlar `ayarlar.json` dosyasına kaydedilir. Dosya bozulursa program çökmez, varsayılan ayarlarla açılır;
+  aralık dışındaki değerler güvenli sınırlara çekilir (en fazla kısma 30 dB'yi geçemez).
 
 ## Bilinmesi gereken
 - Program sesi duyduktan sonra kısar (yaklaşık 0,1 saniye). Çok ani bir davul vuruşunun
