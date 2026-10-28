@@ -3,10 +3,17 @@
 Uyurken dinlenen klasik müzikte yüksek kısımlar gelince Windows sesini otomatik kısar,
 müzik sakinleşince yavaşça geri açar. YouTube, Spotify, tarayıcı, her oynatıcıyla çalışır.
 
-## Kurulum (bir kere)
-```
-python -m pip install -r requirements.txt
-```
+## Kurulum
+Ayrıca bir şey yapmana gerek yok. Sağ üstteki yeşil **Code** düğmesinden **Download ZIP** ile indir,
+bir klasöre çıkar ve `Baslat.bat` dosyasına çift tıkla. İlk açılışta kurulum kendiliğinden yapılır
+(internet gerekir, yaklaşık yarım dakika):
+
+- Bilgisayarda Python 3.12 yoksa `winget` ile kullanıcı hesabına kurulur (yönetici izni gerekmez).
+- Program, kendi klasöründeki `.venv` içine 3 küçük paket kurar (pycaw, comtypes, psutil).
+  Bilgisayarın geri kalanına dokunmaz. Kaldırmak için klasörü silmen yeterli.
+- Paketler sabit sürümle ve parmak iziyle (sha256) kurulur. PyPI'daki dosya değiştirilmişse kurulum durur.
+
+Kurulumu baştan yapmak istersen `KURULUM.bat` dosyasını çalıştır.
 
 ## Kullanım
 1. `Baslat.bat` dosyasına çift tıkla.
